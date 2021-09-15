@@ -700,6 +700,33 @@ table {
  }
 
 
+ .form {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .input-container {
+    margin: 10px 5px;
+    display: flex;
+    flex-direction: column;
+ }
+
+ .input {
+    width: 300px; 
+    height: 30px;   
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 3px;
+ }
+
+ .label {
+    width: 150px;
+    margin-bottom: 3px;
+    font-size: small;
+ }
+
+
+
 
 
 
