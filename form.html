@@ -57,20 +57,23 @@
       <div class="registration-list">
         <h3>List of registered students</h3>
 
-        <ul class="student-list">
-          <li class="student-name">Anne</li>
+        <ul class="student-list" id="students-list">
+          <!-- <li class="student-name">Anne</li>
           <li class="student-name">Elijah</li>
-          <li class="student-name">John</li>
+          <li class="student-name">John</li> -->
+
         </ul>
       </div> <!-- End registration list-->
     </div> <!-- End registration container-->
 
     <script>
-      let movies = [];
+      let students = []; // The list of all student
+
       const addName = (ev) => {
         ev.preventDefault();
 
-        let movie = {
+        // The new student form
+        let student = {
           id: Date.now(),
           student: document.getElementById('title').value,
           number: document.getElementById('yr').value,
@@ -78,17 +81,18 @@
           mather: document.getElementById('mn').value,
           phone: document.getElementById('ct').value
         }
-        movies.push(movie);
+
+        students.push(student);
         document.forms[0].reset();
 
-        console.warn('added', { movies });
-        let pre = document.querySelector('#msg pre');
-        pre.textContent = '\n' + JSON.stringify(movies, '\t', 5);
-
-        //saving to local storage
-        localStorage.setItem('MyMovieList', JSON.stringify(movies))
-
+        // Create a list element
+        const list = document.createElement('li');
+        list.classList.add('student-name');
+        list.innerHTML = student.student;
+        document.getElementById('students-list').appendChild(list);
       }
+
+      // Bind the even to the dom element
       document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('btn').addEventListener('click', addName);
       });
