@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>website</title><br>
+    
+    
+<h1>  Fill the application form and enter all required information</h1><br>
+<marquee direction="right">
+    <h7> Wisdom High School </h7><br>
+</marquee>
+</head>
+<body>
+  <fieldset>
+    <legend> Applicant details:</legend>
+<form method ="post">
+    
+      <div class="formBox">
+        <label for="title">Name</label>
+        <input type="text" id="title" placeholder="Fullnames"/>
+      </div>
+
+      <div class="formBox">
+        <label for="yr">ID</label>
+        <input type="number" id="yr" placeholder="ID Number"/>
+      </div>
+
+      <div class="formBox">
+        <label for="fn">Father Names</label>
+        <input type="text" id="fn" placeholder="Fathernames"/>
+      </div>
+
+      <div class="formBox">
+        <label for="mn">Mather Names</label>
+        <input type="text" id="mn" placeholder="Mathernames"/>
+      </div>
+
+      <div class="formBox">
+        <label for="ct">Contact</label>
+        <input type="number" id="ct" placeholder="Phonenumber"/>
+      </div>
+
+    <div class="formBox">
+      <button id="btn">Save</button>
+    </div>
+    <div id="msg">
+      <pre></pre>
+    </div>
+  </form>
+  <script>
+    let movies = [];
+    const addName = (ev)=>{
+      ev.preventDefault();
+
+      let movie = {
+        id: Date.now(),
+       student: document.getElementById('title').value,
+        number: document.getElementById('yr').value,
+        father: document.getElementById('fn').value,
+        mather: document.getElementById('mn').value,
+        phone: document.getElementById('ct').value
+      }
+      movies.push(movie);
+      document.forms[0].reset();
+
+      console.warn('added' , {movies} );
+      let pre = document.querySelector('#msg pre');
+      pre.textContent = '\n' + JSON.stringify(movies, '\t', 5);
+
+      //saving to local storage
+      localStorage.setItem('MyMovieList', JSON.stringify(movies))
+      
+    }
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.getElementById('btn').addEventListener('click', addName);
+       });  
+
+  </script>
+</fieldset >
+</body>
+
+</html>
+
