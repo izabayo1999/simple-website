@@ -703,6 +703,7 @@ table {
  .form {
      display: flex;
      flex-direction: column;
+     width: 50%;
  }
 
  .input-container {
@@ -725,10 +726,37 @@ table {
     font-size: small;
  }
 
+ .registration-container {
+     display: flex;
+ }
 
+ .registration-list {
+    padding: 50px;
+    text-align: center;
+    width: 100%;
+ }
 
+ .registration-list > h3 {
+     font-size: large;
+     margin-bottom: 20px;
+     text-decoration: underline;
+ }
 
+ .student-list {
+     list-style: none;
+ }
 
+ .student-name {
+     padding: 10px auto;
+     height: 40px;
+     background-color: rgb(207, 207, 207);
+     border: 1px solid grey;
+     border-radius: 20px;
+     font-size: 17px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
 
 
 
